@@ -1,0 +1,6 @@
+<div class="d-flex animated fadeIn">
+    <div class="input-group mb-3">
+      <input class="form-control" type="search" #textSearch placeholder="Search" (keyup)="searchText(textSearch.value)" aria-label="Search">
+      <button class="btn btn-success" type="button" (click)="searchText(textSearch.value)" #btnSearch >Search</button>
+    </div>
+</div>

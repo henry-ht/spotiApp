@@ -1,0 +1,21 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg shadow-sm sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['home']" >
+            <img src="assets/img/banner-ico.png" class="img-fluid img-logo" alt="logo">
+            Spotify App
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                    <a class="nav-link " routerLinkActive="active" [routerLink]="['home']" >Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['search']" >Search</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

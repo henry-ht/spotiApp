@@ -65,11 +65,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "spotify:build"
+            "browserTarget": "spotify:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "spotify:build:production"
+              "browserTarget": "spotify:build:production",
+              "proxyConfig": "src/proxy-prod.conf.json"
             }
           }
         },

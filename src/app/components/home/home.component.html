@@ -1,0 +1,11 @@
+<div class="animated fadeIn">
+    <h1 class="mb-4">
+        Play Lists
+    </h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4"  >
+        <div class="col" *ngFor="let item of playList; let i = index">
+            <app-card [data]="item" [index]="i" ></app-card>
+        </div>
+    </div>
+    <img class="icon-loading mx-auto d-block animated fadeIn" *ngIf="loading" src="assets/img/loading.gif" alt="loading"> 
+</div>
