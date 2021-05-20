@@ -2,12 +2,12 @@
     <img class="card-img-top img-card-big mx-auto" [src]="item['images'][0]['url']" alt="espera">
     <div class="card-body card-h-app">
         <h4 class="card-title text-uppercase">
-            {{item['name']}}
             <small class="float-end small">
                 <span class="badge bg-light text-muted ">
                     {{item['type']}}
                 </span>
             </small>
+            {{item['name']}}
         </h4>
         <p class="card-text"> 
             {{item['artists'][0]['name']}}

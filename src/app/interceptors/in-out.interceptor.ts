@@ -15,7 +15,7 @@ export class InOutInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     request = request.clone({
       setHeaders: {
-        'Authorization': 'Bearer BQBKPjeI3_CePMKoc_DkfFvgZz20m3AerLyTr8mljcIYJolAdedBW-fNUVEk5gsF7xbQpriEsSDV7GOZvPA'
+        'Authorization': 'Bearer BQCx8pLGAUzoIq5lkRZqu8lZK_I2h4-xWjZ0q0cHHzUO3gQCZfg9gAkZqkdPOsFSuCw5QTLflJOQuxWlZ6E'
       },
       withCredentials: false,
     });

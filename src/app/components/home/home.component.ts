@@ -9,6 +9,7 @@ import { RequestsApiService } from './../../services/requests-api.service';
 export class HomeComponent implements OnInit {
   loading:boolean = true;
   playList:object = [];
+  errorText:string = "";
   constructor(private requests:RequestsApiService){
   }
   
@@ -18,9 +19,8 @@ export class HomeComponent implements OnInit {
         'country': 'CO'
       })
       .subscribe((resp:any) => {
-        console.log('ok subele: ', resp);
         this.playList = resp.albums.items;
-      }, null, () => {setTimeout(() => {this.loading = false;}, 3000)});
+      }, (error) => {this.errorText = error.error.error.message;}, () => {setTimeout(() => {this.loading = false;}, 3000)});
   }
 
 }

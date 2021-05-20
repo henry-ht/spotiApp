@@ -2,10 +2,11 @@
     <h1 class="mb-4">
         Play Lists
     </h1>
+    <app-error *ngIf="errorText.length > 0" [contenidoError]="errorText" ></app-error>
     <div class="row row-cols-1 row-cols-md-3 g-4"  >
         <div class="col" *ngFor="let item of playList; let i = index">
             <app-card [data]="item" [index]="i" ></app-card>
         </div>
     </div>
-    <img class="icon-loading mx-auto d-block animated fadeIn" *ngIf="loading" src="assets/img/loading.gif" alt="loading"> 
+    <app-loading *ngIf="loading && errorText.length == 0"  ></app-loading>
 </div>
