@@ -1,6 +1,13 @@
 <div class="d-flex animated fadeIn">
     <div class="input-group mb-3">
-      <input class="form-control" type="search" #textSearch placeholder="Search" (keyup)="searchText(textSearch.value)" aria-label="Search">
-      <button class="btn btn-success" type="button" (click)="searchText(textSearch.value)" #btnSearch >Search</button>
+      <input class="form-control form-control-lg" type="search" #textSearchElement placeholder="Search" (keyup)="searchText(textSearchElement.value)" aria-label="Search">
+      <button class="btn btn-success" type="button" (click)="searchText(textSearchElement.value)" #btnSearch >Search</button>
     </div>
 </div>
+<app-error *ngIf="errorText.length > 0" [contenidoError]="errorText" ></app-error>
+<div class="row row-cols-1 row-cols-md-3 g-4"  >
+    <div class="col" *ngFor="let item of searchArtist; let i = index">
+        <app-card [data]="item" [index]="i" ></app-card>
+    </div>
+</div>
+<app-loading *ngIf="(loading && textSearch.length > 0) && errorText.length == 0"  ></app-loading>

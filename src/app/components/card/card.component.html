@@ -1,5 +1,5 @@
-<div class="card animated fadeIn fast border-0 shadow-sm rounded-0" > 
-    <img class="card-img-top img-card-big mx-auto" [src]="item['images'][0]['url']" alt="espera">
+<div class="card animated fadeIn fast border-0 shadow-sm rounded-0 "  *ngIf="item['images'].length > 0" > 
+    <img class="card-img-top img-card-big mx-auto cursor-pointer" [src]="item['images'][0]['url']" (click)="viewArtist(item)" alt="espera">
     <div class="card-body card-h-app">
         <h4 class="card-title text-uppercase">
             <small class="float-end small">
@@ -10,7 +10,14 @@
             {{item['name']}}
         </h4>
         <p class="card-text"> 
-            {{item['artists'][0]['name']}}
+            <a [href]="item['external_urls']['spotify']" target="_blank" >
+                Ir a la pagina oficial
+            </a>
         </p>
     </div>
+    <!-- <div class="card-footer bg-transparent border-0">
+        <a class="btn btn-outline-dark d-block" [routerLink]="['/artist', item['artists'][0]['id']]" >
+            ver
+        </a>
+    </div> -->
 </div> 

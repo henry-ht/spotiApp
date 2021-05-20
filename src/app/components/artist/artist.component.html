@@ -1,1 +1,66 @@
-<p>artist works!</p>
+<div class="card mb-3 border-0 animated fadeIn"  *ngFor="let item of artist">
+    <div class="row g-0">
+      <div class="col-md-3">
+        <img class="img-fluid artist-profile" [src]="item['images'][0]['url']"  [alt]="item['name']" />
+      </div>
+      <div class="col-md-9">
+        <div class="card-body">
+          <h1 class="card-title text-uppercase fw-bold display-4">
+            {{item['name']}}
+          </h1>
+          <div class="my-2">
+            <div *ngFor="let genre of item['genres']; let i = index" class="badge bg-light text-dark me-2 mb-2">
+                {{genre}}
+            </div>
+            <a [href]="item['external_urls']['spotify']" class="btn btn-outline-info float-md-end mt-2 d-block d-md-none" target="_blank">
+              Go Artit
+            </a>
+          </div>
+          <p class="card-text text-muted">
+            <span class="display-6 fw-bold d-block">
+              {{item['followers']['total'] | number}}
+            </span> 
+            <b>Seguidores</b>  
+          </p>
+          
+          <!-- <p class="card-text">
+              <iframe [src]="sanitizeUrl('https://open.spotify.com/embed/artist/'+item['id'])" class="h-app-play w-100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          </p> -->
+        </div>
+      </div>
+    </div>
+</div>
+<div class="table-responsive pt-3 mt-2">
+  <table class="table ">
+      <thead>
+        <tr>
+          <th scope="col">Caratula</th>
+          <th scope="col">Name</th>
+          <th scope="col">Album</th>
+          <th scope="col">track number</th>
+          <th scope="col">Play</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let track of tracksArtist; let i = index" class="animated fadeIn" >
+          <th scope="row" >
+            <img [src]="track.album.images[0].url" class="artist-img" [alt]="track.name">
+          </th>
+          <td>
+            {{track.name}}
+          </td>
+          <td>
+            {{track.album.name}}
+          </td>
+          <td>
+            {{track.track_number}}
+          </td>
+          <td >
+            <iframe [src]="sanitizeUrl('https://open.spotify.com/embed/?uri='+track.uri)" class="h-app-play w-100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<app-loading *ngIf="loading && errorText.length == 0"  ></app-loading>

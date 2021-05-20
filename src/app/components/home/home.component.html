@@ -1,9 +1,30 @@
 <div class="animated fadeIn">
-    <h1 class="mb-4">
-        Play Lists
-    </h1>
+    <div class="row">
+        <aside class="col-md-8">
+            <h1 class="mb-4">
+                Play Lists - TOP {{playList.length}}
+            </h1>
+        </aside>
+        <aside class="col-md-4 d-flex align-items-center">
+            <div class="input-group">
+                <select name="country" id="country" class="form-control w-75" #countryCode (change)="getListForCountry(countryCode.value, limitData.value)" >
+                    <option value="co">Colombia</option>
+                    <option value="es">España</option>
+                    <option value="mx">Mexico</option>
+                    <option value="fr">Francia</option>
+                    <option value="us">Estados Unidos</option>
+                </select>
+                <select name="limit" id="limit" class="form-control bg-info fw-bold text-white" #limitData (change)="getListForCountry(countryCode.value, limitData.value)" >
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+        </aside>
+    </div>
+    <hr>
     <app-error *ngIf="errorText.length > 0" [contenidoError]="errorText" ></app-error>
-    <div class="row row-cols-1 row-cols-md-3 g-4"  >
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-3"  >
         <div class="col" *ngFor="let item of playList; let i = index">
             <app-card [data]="item" [index]="i" ></app-card>
         </div>

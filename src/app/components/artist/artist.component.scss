@@ -1,0 +1,15 @@
+.h-app-play{
+    height: 5rem;
+}
+.artist-img{
+    width: 9rem;
+}
+.artist-profile{
+    width: 13rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .artist-profile{
+        width: 100%;
+    }
+}
