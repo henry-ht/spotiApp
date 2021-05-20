@@ -19,7 +19,7 @@ export class CardComponent implements OnInit {
     if(item.type == 'single' || item.type == 'artist'){
       id = item.id
     }else{
-      id = item.artist[0].id;
+      id = item.artists[0].id;
     }
 
     if(id !== ''){

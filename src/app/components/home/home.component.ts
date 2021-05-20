@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
       'limit': limit
     })
     .subscribe((resp:any) => {
-      console.log('hola: ', resp)
       this.playList = resp.albums.items;
     }, (error) => {this.errorText = error.error.error.message;}, () => {setTimeout(() => {this.loading = false;}, 3000)});
 

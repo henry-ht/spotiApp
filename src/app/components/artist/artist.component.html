@@ -12,8 +12,8 @@
             <div *ngFor="let genre of item['genres']; let i = index" class="badge bg-light text-dark me-2 mb-2">
                 {{genre}}
             </div>
-            <a [href]="item['external_urls']['spotify']" class="btn btn-outline-info float-md-end mt-2 d-block d-md-none" target="_blank">
-              Go Artit
+            <a [href]="item['external_urls']['spotify']" class="btn btn-outline-info float-md-end mt-2 d-none d-md-inline" target="_blank">
+              Go page
             </a>
           </div>
           <p class="card-text text-muted">
@@ -22,7 +22,9 @@
             </span> 
             <b>Seguidores</b>  
           </p>
-          
+          <a [href]="item['external_urls']['spotify']" class="btn btn-outline-info float-md-end mt-2 d-block d-md-none" target="_blank">
+            Go Artit
+          </a>
           <!-- <p class="card-text">
               <iframe [src]="sanitizeUrl('https://open.spotify.com/embed/artist/'+item['id'])" class="h-app-play w-100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           </p> -->
@@ -30,7 +32,13 @@
       </div>
     </div>
 </div>
-<div class="table-responsive pt-3 mt-2">
+<hr>
+<div class="pt-3 mt-2 mb/3">
+  <h3 >
+    SOUND TRACKS
+  </h3>
+</div>
+<div class="table-responsive">
   <table class="table ">
       <thead>
         <tr>
@@ -62,5 +70,25 @@
       </tbody>
   </table>
 </div>
+
+<!-- <section class="row">
+  <aside class="col-md-3 col-lg-4 animated fadeIn g-" *ngFor="let track of tracksArtist; let i = index"  >
+    <div class="card border-0 shadow-sm">
+      <img [src]="track.album.images[0].url"  class="card-img-top" [alt]="track.name">
+      <div class="card-body pb-0">
+        <h4 class="card-title h-card-play" title="{{track.name}}">
+          {{(track.name.slice(0,35))+(track.name.lenght > 35 ? '...':'')}} 
+        </h4>
+        <p class="card-text">
+          Album: <b>{{track.album.name}} </b>  <br>
+          Track number: <b>{{track.track_number}} </b> 
+        </p>
+      </div>
+      <div class="card-footer border-0 bg-transparent">
+        <iframe [src]="sanitizeUrl('https://open.spotify.com/embed/?uri='+track.uri)" class="h-app-play w-100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+    </div>
+  </aside>
+</section> -->
 
 <app-loading *ngIf="loading && errorText.length == 0"  ></app-loading>
